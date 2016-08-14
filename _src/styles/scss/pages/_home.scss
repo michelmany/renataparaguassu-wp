@@ -1,0 +1,79 @@
+.banner-home {
+    padding-bottom: 35px;
+
+    &-inner {
+        @media screen and (min-width: 1281px) {
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+        }     
+    }
+
+    &-image {
+        img {
+            @media screen and (max-width: 1280px) {
+                min-width: 100%;
+            }
+            @media screen and (min-width: 1281px) {
+                border-radius: 8px;
+                margin: 0 auto;
+            }
+        
+        }
+        &-shadow {
+            background: url('../images/slide_shadow.png') no-repeat center bottom;
+            background-size: 95% 95%;
+            height: 48px;
+            position: relative;
+            top: -25px;
+            z-index: -1;
+            @media screen and (max-width: 1280px) {
+                min-width: 100%;
+            }
+            @media screen and (min-width: 1281px) {
+                margin: 0 auto;
+                max-width: 80%;
+            }          
+        }
+
+    }
+
+
+
+}
+
+.servicos {
+
+    &-header {
+
+        padding-bottom: 55px;
+        h2 {
+            color: $color-font-gray;
+            margin-bottom: 8px;
+            img {
+                vertical-align: middle;
+                margin-top: -10px;
+                max-width: 32px;
+            }
+        }
+        @media screen and (min-width: 768px) {
+         
+        }        
+
+    }
+    &-content {
+        h3 {
+            color: $main-color;
+            font-size: convertSizing(17, 14);
+            text-transform: none;
+            margin-bottom: 5px;
+        }
+        p {
+            padding: 10px 0;
+        }
+        .col-xs-4, .col-sm-4 {
+            margin-bottom: 30px;
+        }
+    }
+}
