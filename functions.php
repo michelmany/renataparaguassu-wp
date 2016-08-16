@@ -64,3 +64,14 @@ function nav_link_att($atts, $item, $args) {
     }
     return $atts;
 }
+
+
+
+#Se o título for maior que 35 caracteres, corta e coloca '...' após!
+function cortaTitulo($title, $qtdCaracter) {
+    if (strlen($title) > $qtdCaracter) {
+        echo substr(the_title($before = '', $after = '', FALSE), 0, $qtdCaracter) . '...'; 
+    } else {
+       echo the_title();
+    } 
+};

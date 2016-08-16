@@ -7,36 +7,57 @@
                     <a href="" class="btn btn-default outline">Ver todas</a>
                 </div>    
             </div>
+
+            <?php
+            $RecentPostsMaior = new WP_Query("showposts=1"); 
+            while($RecentPostsMaior->have_posts()) : $RecentPostsMaior->the_post();?>       
+
             <div class="col-sm-6 col-md-4">
                 <div class="footer-blog-image">
-                    <img src="<?php echo IMAGES_PATH ?>/placeholder-blog-01.png" alt="">
-                    <span>Publicado em 13/03</span>
+                <?php if ( has_post_thumbnail() ) : ?>
+                    <a href="<?php the_permalink() ?>" title="Link para <?php the_title(); ?> " rel="bookmark">
+                        <?php the_post_thumbnail('blog-thumb-home', array( 'class' => 'img-responsive' )); ?>
+                    </a>
+                <?php else: ?>
+                    <a href="<?php the_permalink() ?>" title="Link para <?php the_title(); ?> " rel="bookmark">
+                        <img src="http://placehold.it/700x480/0070CC/FFFFFF?text=SEM+IMAGEM" class="img-responsive">
+                    </a>
+                <?php endif; ?>                     
+                    <span>Publicado em <?php the_time('d/m'); ?></span>
                 </div>
                 <div class="footer-blog-title">
-                    <h4><a href="">Titulo do Post 03</a></h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias perferendis, totam quod natus dolore placeat aut vero quos sint repellat odit quam suscipit corrupti. Doloremque culpa aliquam pariatur adipisci corrupti!</p>
+                    <h4><a href="<?php the_permalink() ?>"><?php cortaTitulo($post->post_title, 35); ?></a></h4>
+                    <p><?php echo the_excerpt(); ?></p>
                 </div>
             </div>
+
+            <?php endwhile; ?>
+
+            <?php
+            $RecentPostsMenor = new WP_Query( array( 'showposts' => 2 , 'offset' => 1 )); 
+            while($RecentPostsMenor->have_posts()) : $RecentPostsMenor->the_post();?>    
+
             <div class="col-sm-6 col-md-3">
                 <div class="footer-blog-image">
-                    <img src="<?php echo IMAGES_PATH ?>/placeholder-blog-02.png" alt="">
-                    <span>Publicado em 13/03</span>
+                   <?php if ( has_post_thumbnail() ) : ?>
+                        <a href="<?php the_permalink() ?>" title="Link para <?php the_title(); ?> " rel="bookmark">
+                            <?php the_post_thumbnail('blog-thumb-home', array( 'class' => 'img-responsive' )); ?>
+                        </a>
+                    <?php else: ?>
+                        <a href="<?php the_permalink() ?>" title="Link para <?php the_title(); ?> " rel="bookmark">
+                            <img src="http://placehold.it/510x356/0070CC/FFFFFF?text=SEM+IMAGEM" class="img-responsive">
+                        </a>
+                    <?php endif; ?>  
+                    <span>Publicado em <?php the_time('d/m'); ?></span>
                 </div>
                 <div class="footer-blog-title">
-                    <h4>Titulo do Post 02</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias perferendis, totam quod natus dolore placeat aut vero quos sint repellat odit quam suscipit corrupti. Doloremque culpa aliquam pariatur adipisci corrupti!</p>
+                    <h4><a href="<?php the_permalink() ?>"><?php cortaTitulo($post->post_title, 30); ?></a></h4>
+                    <p><?php echo the_excerpt(); ?></p>
                 </div>
             </div> 
-            <div class="col-sm-6 col-md-3">
-                <div class="footer-blog-image">
-                    <img src="<?php echo IMAGES_PATH ?>/placeholder-blog-03.png" alt="">
-                    <span>Publicado em 13/03</span>
-                </div>
-                <div class="footer-blog-title">
-                    <h4>Titulo do Post 01</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias perferendis, totam quod natus dolore placeat aut vero quos sint repellat odit quam suscipit corrupti. Doloremque culpa aliquam pariatur adipisci corrupti!</p>
-                </div>
-            </div>                             
+            
+            <?php endwhile; ?>
+                            
         </div>
     </footer>
         <div class="footer-bar">
@@ -73,7 +94,7 @@
 
     <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.scrollto/2.1.0/jquery.scrollTo.min.js"></script>
 
-    <script src="scripts/app.js"></script>
-
+    <script src="<?php echo SCRIPTS_PATH ?>/app.js"></script>
+    <?php wp_footer(); ?>
 </body>
 </html>

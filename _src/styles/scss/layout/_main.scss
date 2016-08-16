@@ -130,3 +130,18 @@ p {
     color: white;
     box-shadow: none;
 }
+
+.btn-custom.outline {
+    border: 2px solid $color-blue-brand-1;
+    color: $color-blue-brand-1;
+}
+.btn-custom.outline:hover, .btn-custom.outline:focus, .btn-custom.outline:active, .btn-custom.outline.active, .open > .dropdown-toggle.btn-custom {
+    color: #fff;
+    border-color: $color-blue-brand-1;
+    background-color: $color-blue-brand-1
+}
+.btn-custom.outline:active, .btn-custom.outline.active {
+    border-color: white;
+    color: white;
+    box-shadow: none;
+}

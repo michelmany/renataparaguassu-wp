@@ -1,6 +1,6 @@
 <?php get_header("headers.php"); ?>
 
-    <section id="section1" class="banner-home">
+    <section id="section1" class="banner-home text-center">
             <div class="banner-home-inner">
                 <div class="banner-home-image">
                     <!-- <img src="http://placehold.it/1280x450" class="img-responsive"> -->

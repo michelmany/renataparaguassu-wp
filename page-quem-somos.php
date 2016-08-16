@@ -3,7 +3,7 @@
     <section class="page">
             <div class="page-head">
                 <div class="container text-center">
-                    <h2><img src="<?php echo IMAGES_PATH ?>/icon-logo-white.png"> QUEM SOMOS</h2>
+                    <h2><img src="<?php echo IMAGES_PATH ?>/icon-logo-white.png"> QUEM SOMOSS</h2>
                 </div>
             </div>
             <div class="page-content">
